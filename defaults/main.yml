@@ -1,5 +1,6 @@
 ---
-# defaults file for ansible-nfs-client
+# defaults file for ansible-role-nfsclient
+nfs_client_configure: false
 nfs_client_mounts: []
   # - mount:
   #   fstype: 'nfs'

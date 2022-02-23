@@ -1,6 +1,7 @@
 ---
 # tasks file for ansible-nfs-client
 - name: NFS Client
+  when: nfs_client_configure == true
   tags:
     - nfs
     - nfsclient

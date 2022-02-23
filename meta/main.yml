@@ -1,0 +1,21 @@
+
+galaxy_info:
+  namespace: neoloc
+  role_name: nfsclient
+  author: neoloc
+  description: An [Ansible](https://www.ansible.com) role to install/configure an NFS Client
+  license: MIT
+  min_ansible_version: 2.9.0
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - system
+dependencies: []

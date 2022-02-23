@@ -1,0 +1,14 @@
+---
+# tasks file for ansible-nfs-client
+- name: NFS Client
+  tags:
+    - nfs
+    - nfsclient
+  block:
+    - include_tasks: debian.yml
+      when: ansible_os_family == "Debian"
+
+    - include_tasks: redhat.yml
+      when: ansible_os_family == "RedHat"
+
+    - import_tasks: config.yml

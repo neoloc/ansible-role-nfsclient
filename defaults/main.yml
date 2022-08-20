@@ -1,7 +1,45 @@
 ---
 # defaults file for ansible-role-nfsclient
 nfs_client_configure: false
-nfs_client_mounts: []
+nfs_client_mounts_all: []
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test1'
+  #   src: '192.168.250.10:/opt/nfs/test1'
+  #   state: 'mounted'
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test2'
+  #   src: '192.168.250.10:/opt/nfs/test2'
+  #   state: 'mounted'
+nfs_client_mounts_group: []
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test1'
+  #   src: '192.168.250.10:/opt/nfs/test1'
+  #   state: 'mounted'
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test2'
+  #   src: '192.168.250.10:/opt/nfs/test2'
+  #   state: 'mounted'
+nfs_client_mounts_host: []
   # - mount:
   #   fstype: 'nfs'
   #   opts:

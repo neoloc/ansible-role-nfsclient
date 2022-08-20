@@ -1,5 +1,5 @@
 ---
-- name: config | Mounting NFS Exports
+- name: config | Mounting NFS Exports for ALL
   mount:
     fstype: "{{ item['fstype'] }}"
     opts: "{{ (item['opts']|join(','))|default(omit) }}"
@@ -7,5 +7,27 @@
     src: "{{ item['src'] }}"
     state: "{{ item['state'] }}"
   become: true
-  with_items: '{{ nfs_client_mounts }}'
-  when: nfs_client_mounts is defined
+  with_items: '{{ nfs_client_mounts_all }}'
+  when: nfs_client_mounts_all is defined
+
+- name: config | Mounting NFS Exports for GROUP
+  mount:
+    fstype: "{{ item['fstype'] }}"
+    opts: "{{ (item['opts']|join(','))|default(omit) }}"
+    path: "{{ item['path'] }}"
+    src: "{{ item['src'] }}"
+    state: "{{ item['state'] }}"
+  become: true
+  with_items: '{{ nfs_client_mounts_group }}'
+  when: nfs_client_mounts_group is defined
+
+- name: config | Mounting NFS Exports for HOST
+  mount:
+    fstype: "{{ item['fstype'] }}"
+    opts: "{{ (item['opts']|join(','))|default(omit) }}"
+    path: "{{ item['path'] }}"
+    src: "{{ item['src'] }}"
+    state: "{{ item['state'] }}"
+  become: true
+  with_items: '{{ nfs_client_mounts_host }}'
+  when: nfs_client_mounts_host is defined

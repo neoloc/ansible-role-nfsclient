@@ -15,10 +15,52 @@ None
 
 ## Role Variables
 
+There are three 'groups' of mounts. All, Group and Host. This is done to reduce duplicate code in your playbooks.
+
+E.g. NFS Home in 'nfs_client_mounts_all', NFS Webdata in 'nfs_client_mounts_group' and per-host specific shares in 'nfs_client_mounts_host'
+
 ```yaml
 ---
 # defaults file for ansible-role-nfsclient
-nfs_client_mounts: []
+nfs_client_mounts_all: []
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test1'
+  #   src: '192.168.250.10:/opt/nfs/test1'
+  #   state: 'mounted'
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test2'
+  #   src: '192.168.250.10:/opt/nfs/test2'
+  #   state: 'mounted'
+nfs_client_mounts_group: []
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test1'
+  #   src: '192.168.250.10:/opt/nfs/test1'
+  #   state: 'mounted'
+  # - mount:
+  #   fstype: 'nfs'
+  #   opts:
+  #     - 'rsize=8192'
+  #     - 'wsize=8192'
+  #     - 'intr'
+  #   path: '/opt/nfs/test2'
+  #   src: '192.168.250.10:/opt/nfs/test2'
+  #   state: 'mounted'
+nfs_client_mounts_host: []
   # - mount:
   #   fstype: 'nfs'
   #   opts:
@@ -50,7 +92,7 @@ None
 - hosts: nfs_client
   vars:
   roles:
-    - role: ansible-role-nfsclient
+    - role: neoloc.nfsclient
   tasks:
 ```
 
